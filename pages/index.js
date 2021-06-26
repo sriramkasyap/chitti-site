@@ -8,8 +8,8 @@ export default function Home() {
         <title>Chitti.io</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HeadingFont>American Typewriter</HeadingFont>
-      <p>Quicksand</p>
+      <HeadingFont>Chitti.</HeadingFont>
+      <p>Work in Progress</p>
     </>
   );
 }
