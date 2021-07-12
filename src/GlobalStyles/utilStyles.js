@@ -1,11 +1,22 @@
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
+    *, :after, :before {
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
     body {
         margin: 0;
         font-family: ${({ theme }) => theme.fonts.text};
         color: ${({ theme }) => theme.colors.black};
         overflow-x: hidden;
+        font-size: 14px;
+        @media screen and (min-width: 768px) {
+            font-size: 16px;
+        }
+        @media screen and (min-width: 1440px) {
+            font-size: 18px;
+        }
     }
     p,
     li,

@@ -1,17 +1,13 @@
-import Head from "next/head";
 import styled from "styled-components";
+import TopBar from "../src/components/common/TopBar";
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Chitti.io</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <HeadingFont>Chitti.</HeadingFont>
-      <p>Work in Progress</p>
+      <TopBar showLogo={false} />
+      <Banner></Banner>
     </>
   );
 }
 
-const HeadingFont = styled.h1``;
+let Banner = styled.div``;

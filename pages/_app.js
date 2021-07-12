@@ -1,6 +1,8 @@
-import UtilStyles from "../src/utilStyles";
 import { ThemeProvider } from "styled-components";
-import FontStyles from "../src/fontStyles";
+import Head from "next/head";
+import UtilStyles from "../src/GlobalStyles/utilStyles";
+import FontStyles from "../src/GlobalStyles/fontStyles";
+import ResetCSS from "../src/GlobalStyles/resetCss";
 
 const theme = {
   colors: {
@@ -21,7 +23,13 @@ const theme = {
 export default function App({ Component, pageProps }) {
   return (
     <>
+      <Head>
+        <title>Chitti.io</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <ThemeProvider theme={theme}>
+        <ResetCSS />
         <UtilStyles />
         <FontStyles />
         <Component {...pageProps} />
