@@ -9,6 +9,7 @@ const TopBar = ({ showLogo }) => {
     <TopBarStyled>
       <Container>
         <FlexBox>
+          {showLogo ? <></> : <></>}
           <div className="user-auth-menu">
             <Link href="/login">Login/Signup</Link>
           </div>
@@ -19,7 +20,7 @@ const TopBar = ({ showLogo }) => {
 };
 
 const TopBarStyled = styled.div`
-  padding-top: 15px;
+  padding-top: 25px;
   padding-bottom: 15px;
   .user-auth-menu {
     margin-left: auto;

@@ -7,6 +7,9 @@ import ResetCSS from "../src/GlobalStyles/resetCss";
 const theme = {
   colors: {
     black: "#252525",
+    grey: "#7e7e7e",
+    light: "#e0e0e0",
+    white: "#ffffff",
   },
   fonts: {
     text: "Quicksand",

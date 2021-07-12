@@ -11,6 +11,10 @@ export default createGlobalStyle`
         color: ${({ theme }) => theme.colors.black};
         overflow-x: hidden;
         font-size: 14px;
+        background-image: ${({ theme }) => `radial-gradient(circle at 0 0, white, ${theme.colors.light})`};
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
         @media screen and (min-width: 768px) {
             font-size: 16px;
         }
@@ -46,7 +50,6 @@ export default createGlobalStyle`
         user-select: none;
         height: auto;
         width: auto;
-        user-drag: none; 
         user-select: none;
         -moz-user-select: none;
         -webkit-user-drag: none;
@@ -109,9 +112,7 @@ export default createGlobalStyle`
             height: 4px;
         }
         .peg {
-            box-shadow: 0 0 10px ${({ theme }) =>
-              theme.colors.primary}, 0 0 5px ${({ theme }) =>
-  theme.colors.primary};
+            box-shadow: 0 0 10px ${({ theme }) => theme.colors.primary}, 0 0 5px ${({ theme }) => theme.colors.primary};
         }
         .spinner {
             display: none;
