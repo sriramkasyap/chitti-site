@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { SolidButton } from "../styled/Button";
 import Container from "../styled/Container";
 
 const HomeCreatorSection = () => {
@@ -20,6 +21,9 @@ const HomeCreatorSection = () => {
             those who find value in their content.
           </p>
         </div>
+        <div className="section-cta">
+          <SolidButton className="explore-button">Explore Creators</SolidButton>
+        </div>
       </Container>
     </HomeCreatorSectionStyled>
   );
@@ -30,14 +34,44 @@ const HomeCreatorSectionStyled = styled.section`
   .section-heading {
     font-size: 30px;
     text-align: center;
+    @media only screen and (min-width: 768px) {
+      font-size: 35px;
+    }
+    @media only screen and (min-width: 992px) {
+      font-size: 45px;
+    }
+    @media only screen and (min-width: 992px) {
+      font-size: 55px;
+    }
   }
   .section-text {
     margin: 30px 0;
     max-width: 90%;
+    margin: 40px auto 20px;
+    @media only screen and (min-width: 768px) {
+      max-width: 80%;
+    }
+    @media only screen and (min-width: 1200px) {
+      max-width: 850px;
+    }
     p {
       font-size: 16px;
       text-align: center;
-      margin: 20px auto;
+      margin: 20px 0;
+      @media only screen and (min-width: 992px) {
+        font-size: 18px;
+        line-height: 1.75;
+        margin: 30px 0;
+      }
+    }
+  }
+
+  .section-cta {
+    text-align: center;
+    padding: 20px 0;
+    .explore-button {
+      font-size: 16px;
+      padding: 8px 30px;
     }
   }
 `;
