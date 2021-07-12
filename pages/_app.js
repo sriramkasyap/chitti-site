@@ -1,5 +1,7 @@
 import { ThemeProvider } from "styled-components";
 import Head from "next/head";
+import PropTypes from "prop-types";
+import React from "react";
 import UtilStyles from "../src/GlobalStyles/utilStyles";
 import FontStyles from "../src/GlobalStyles/fontStyles";
 import ResetCSS from "../src/GlobalStyles/resetCss";
@@ -40,3 +42,13 @@ export default function App({ Component, pageProps }) {
     </>
   );
 }
+
+App.propTypes = {
+  Component: React.Component,
+  pageProps: PropTypes.object,
+};
+
+App.defaultProps = {
+  Component: <></>,
+  pageProps: {},
+};
