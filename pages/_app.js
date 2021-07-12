@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import React from "react";
 import UtilStyles from "../src/GlobalStyles/utilStyles";
 import FontStyles from "../src/GlobalStyles/fontStyles";
-import ResetCSS from "../src/GlobalStyles/resetCss";
 
 const theme = {
   colors: {
@@ -31,10 +30,10 @@ export default function App({ Component, pageProps }) {
       <Head>
         <title>Chitti.io</title>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="/css/reset.css" />
       </Head>
 
       <ThemeProvider theme={theme}>
-        <ResetCSS />
         <UtilStyles />
         <FontStyles />
         <Component {...pageProps} />
