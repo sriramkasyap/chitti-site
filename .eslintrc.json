@@ -46,12 +46,6 @@
     "no-restricted-syntax": ["off", "FunctionExpression"],
     "no-prototype-builtins": "off",
     "prefer-spread": "off",
-    "no-param-reassign": [
-      "error",
-      {
-        "props": true,
-        "ignorePropertyModificationsFor": ["accu"]
-      }
-    ]
+    "no-param-reassign": ["off"]
   }
 }

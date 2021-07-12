@@ -1,6 +1,5 @@
-import Document from "next/document";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
-import { Html, Head, Main, NextScript } from "next/document";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -28,6 +27,7 @@ export default class MyDocument extends Document {
       sheet.seal();
     }
   }
+
   render() {
     return (
       <Html>
@@ -36,7 +36,7 @@ export default class MyDocument extends Document {
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com"
-            crossOrigin={"true"}
+            crossOrigin="true"
           />
           <link
             href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap"
