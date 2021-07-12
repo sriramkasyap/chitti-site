@@ -3,30 +3,37 @@ import React from "react";
 import styled from "styled-components";
 import Button from "../styled/Button";
 import Container from "../styled/Container";
-import { FlexCSS } from "../styled/FlexBox";
+import FlexBox, { FlexCSS } from "../styled/FlexBox";
 
 const HomeBanner = () => {
   return (
     <>
       <Banner>
         <Container>
-          <h1 className="main-heading">Chitti.</h1>
-          <div className="main-content">
-            <p>
-              A Newsletter publication and distribution platform to help Content creators reach their audience directly and monetize from the loyal
-              ones.
-            </p>
-            <div className="action-holder">
-              <Link href={process.env.NEXT_PUBLIC_DASHBOARD_LINK}>
-                <Button className="action-button" darkBg>
-                  Start a Newsletter
-                </Button>
-              </Link>
-              <Button className="action-button" darkBg={false}>
-                Explore Creators
-              </Button>
-            </div>
-          </div>
+          <FlexBox>
+            <ContentPart>
+              <h1 className="main-heading">Chitti.</h1>
+              <div className="main-content">
+                <p>
+                  A Newsletter publication and distribution platform to help Content creators reach their audience directly and monetize from the
+                  loyal ones.
+                </p>
+                <div className="action-holder">
+                  <Link href={process.env.NEXT_PUBLIC_DASHBOARD_LINK}>
+                    <Button className="action-button" darkBg>
+                      Start a Newsletter
+                    </Button>
+                  </Link>
+                  <Button className="action-button" darkBg={false}>
+                    Explore Creators
+                  </Button>
+                </div>
+              </div>
+            </ContentPart>
+            <ImagePart>
+              <img src="/images/typewriter.png" alt="" />
+            </ImagePart>
+          </FlexBox>
         </Container>
       </Banner>
     </>
@@ -61,6 +68,18 @@ const Banner = styled.div`
       padding-bottom: 10px;
       font-weight: ${({ theme }) => theme.fontWeights.regular};
     }
+  }
+`;
+
+const ContentPart = styled.div`
+  flex: 100%;
+`;
+
+const ImagePart = styled.div`
+  flex: 100%;
+  img {
+    max-width: 300px;
+    margin: 20px auto 0;
   }
 `;
 

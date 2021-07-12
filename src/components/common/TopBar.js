@@ -29,7 +29,7 @@ TopBar.defaultProps = {
 };
 
 const TopBarStyled = styled.div`
-  padding-top: 25px;
+  padding-top: 20px;
   padding-bottom: 15px;
   .user-auth-menu {
     margin-left: auto;
