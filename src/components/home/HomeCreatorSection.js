@@ -33,10 +33,10 @@ const HomeCreatorSectionStyled = styled.section`
   }
   .section-text {
     margin: 30px 0;
+    max-width: 90%;
     p {
       font-size: 16px;
       text-align: center;
-      max-width: 90%;
       margin: 20px auto;
     }
   }
