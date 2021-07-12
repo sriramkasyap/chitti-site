@@ -42,23 +42,66 @@ const HomeBanner = () => {
 
 const Banner = styled.div`
   padding-top: 40px;
+  @media only screen and (min-width: 768px) {
+    padding-top: 60px;
+  }
+  @media only screen and (min-width: 1200px) {
+    padding-top: 100px;
+  }
   .main-heading {
     font-size: 45px;
     margin: 0;
     font-weight: ${({ theme }) => theme.fontWeights.regular};
+    @media only screen and (min-width: 768px) {
+      font-size: 55px;
+    }
+    @media only screen and (min-width: 992px) {
+      font-size: 60px;
+    }
+    @media only screen and (min-width: 1200px) {
+      font-size: 80px;
+    }
+    @media only screen and (min-width: 1440px) {
+      font-size: 90px;
+    }
   }
   .main-content {
     margin: 30px 0;
     padding-left: 5px;
     max-width: 90%;
+    @media only screen and (min-width: 768px) {
+      max-width: 400px;
+      margin: 40px 0;
+    }
+    @media only screen and (min-width: 992px) {
+      max-width: 450px;
+    }
+    @media only screen and (min-width: 1200px) {
+      max-width: 550px;
+    }
+    @media only screen and (min-width: 1440px) {
+      max-width: 650px;
+      margin-top: 50px;
+    }
     p {
       margin: 20px 0;
       font-size: 20px;
       line-height: 1.5;
+      @media only screen and (min-width: 1200px) {
+        font-size: 24px;
+        margin-bottom: 30px;
+      }
+      @media only screen and (min-width: 1440px) {
+        font-size: 30px;
+        margin-bottom: 50px;
+      }
     }
   }
   .action-holder {
     ${FlexCSS}
+    @media only screen and (min-width: 992px) {
+      flex-wrap: nowrap;
+    }
     .action-button {
       flex: 100%;
       max-width: 200px;
@@ -67,6 +110,15 @@ const Banner = styled.div`
       padding-top: 10px;
       padding-bottom: 10px;
       font-weight: ${({ theme }) => theme.fontWeights.regular};
+      @media only screen and (min-width: 992px) {
+        margin-right: 20px;
+        font-size: 18px;
+      }
+      @media only screen and (min-width: 1440px) {
+        margin-right: 30px;
+        font-size: 20px;
+        max-width: 260px;
+      }
     }
   }
 `;
@@ -80,6 +132,22 @@ const ImagePart = styled.div`
   img {
     max-width: 300px;
     margin: 20px auto 0;
+    @media only screen and (min-width: 768px) {
+      margin-right: 0;
+      margin-top: -100px;
+      max-width: 350px;
+    }
+    @media only screen and (min-width: 992px) {
+      max-width: 400px;
+    }
+    @media only screen and (min-width: 1200px) {
+      max-width: 500px;
+      margin-top: -150px;
+    }
+    @media only screen and (min-width: 1440px) {
+      max-width: 650px;
+      margin-top: -200px;
+    }
   }
 `;
 

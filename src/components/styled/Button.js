@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import TransitionCSS from "./TransitionCSS";
 
 const Button = styled.button`
   border-radius: 30px;
@@ -10,9 +9,11 @@ const Button = styled.button`
   color: ${({ darkBg, theme: { colors } }) => (darkBg ? colors.white : colors.black)};
   font-weight: ${({ theme }) => theme.fontWeights.light};
   font-family: ${({ theme: { fonts } }) => fonts.text};
-  ${TransitionCSS}
+  transition: all 0.2s ease-in-out;
   &:hover {
     background-color: ${({ darkBg, theme: { colors } }) => (darkBg ? "transparent" : colors.black)};
+    color: ${({ darkBg, theme: { colors } }) => (darkBg ? colors.black : colors.white)};
+    cursor: pointer;
   }
 `;
 

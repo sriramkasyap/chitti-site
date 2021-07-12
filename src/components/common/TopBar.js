@@ -31,6 +31,9 @@ TopBar.defaultProps = {
 const TopBarStyled = styled.div`
   padding-top: 20px;
   padding-bottom: 15px;
+  @media only screen and (min-width: 992px) {
+    padding-top: 30px;
+  }
   .user-auth-menu {
     margin-left: auto;
   }
