@@ -1,17 +1,13 @@
-import Head from "next/head";
-import styled from "styled-components";
+import TopBar from "../src/components/common/TopBar";
+import HomeBanner from "../src/components/home/HomeBanner";
+import HomeCreatorSection from "../src/components/home/HomeCreatorSection";
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Chitti.io</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <HeadingFont>Chitti.</HeadingFont>
-      <p>Work in Progress</p>
+      <TopBar showLogo={false} />
+      <HomeBanner />
+      <HomeCreatorSection />
     </>
   );
 }
-
-const HeadingFont = styled.h1``;

@@ -3,13 +3,7 @@
     "es2021": true,
     "browser": true
   },
-  "extends": [
-    "plugin:react/recommended",
-    "airbnb",
-    "prettier",
-    "next",
-    "next/core-web-vitals"
-  ],
+  "extends": ["plugin:react/recommended", "airbnb", "prettier"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -52,12 +46,6 @@
     "no-restricted-syntax": ["off", "FunctionExpression"],
     "no-prototype-builtins": "off",
     "prefer-spread": "off",
-    "no-param-reassign": [
-      "error",
-      {
-        "props": true,
-        "ignorePropertyModificationsFor": ["accu"]
-      }
-    ]
+    "no-param-reassign": ["off"]
   }
 }
