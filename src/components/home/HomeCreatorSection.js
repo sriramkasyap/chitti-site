@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
+import PropTypes from "prop-types";
 import { SolidButton } from "../styled/Button";
 import Container from "../styled/Container";
+import CreatorsHolder from "./CreatorsHolder";
 
-const HomeCreatorSection = () => {
+const HomeCreatorSection = ({ creators }) => {
   return (
     <HomeCreatorSectionStyled>
       <Container>
@@ -27,9 +29,18 @@ const HomeCreatorSection = () => {
             <SolidButton className="explore-button">Explore Creators</SolidButton>
           </Link>
         </div>
+        <CreatorsHolder creators={creators} />
       </Container>
     </HomeCreatorSectionStyled>
   );
+};
+
+HomeCreatorSection.propTypes = {
+  creators: PropTypes.arrayOf(PropTypes.object),
+};
+
+HomeCreatorSection.defaultProps = {
+  creators: [],
 };
 
 const HomeCreatorSectionStyled = styled.section`

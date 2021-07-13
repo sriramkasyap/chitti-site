@@ -52,6 +52,7 @@
       {
         "forbid": ["any"]
       }
-    ]
+    ],
+    "no-throw-literal": ["off"]
   }
 }

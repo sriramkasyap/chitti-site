@@ -29,7 +29,13 @@ const SolidButton = ({ children, ...otherProps }) => {
 };
 
 SolidButton.propTypes = {
-  children: PropTypes.instanceOf(React.Component),
+  children: PropTypes.oneOfType([
+    PropTypes.instanceOf(React.Component),
+    PropTypes.arrayOf(React.Component),
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.string,
+  ]),
 };
 
 SolidButton.defaultProps = {
@@ -46,7 +52,13 @@ const OutlineButton = ({ children, ...otherProps }) => {
 };
 
 OutlineButton.propTypes = {
-  children: PropTypes.instanceOf(React.Component),
+  children: PropTypes.oneOfType([
+    PropTypes.instanceOf(React.Component),
+    PropTypes.arrayOf(React.Component),
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.string,
+  ]),
 };
 
 OutlineButton.defaultProps = {
