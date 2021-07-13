@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Link from "next/link";
 import { SolidButton } from "../styled/Button";
 import Container from "../styled/Container";
 
@@ -22,7 +23,9 @@ const HomeCreatorSection = () => {
           </p>
         </div>
         <div className="section-cta">
-          <SolidButton className="explore-button">Explore Creators</SolidButton>
+          <Link href="/creators">
+            <SolidButton className="explore-button">Explore Creators</SolidButton>
+          </Link>
         </div>
       </Container>
     </HomeCreatorSectionStyled>
@@ -40,7 +43,7 @@ const HomeCreatorSectionStyled = styled.section`
     @media only screen and (min-width: 992px) {
       font-size: 45px;
     }
-    @media only screen and (min-width: 992px) {
+    @media only screen and (min-width: 1200px) {
       font-size: 55px;
     }
   }
@@ -52,7 +55,7 @@ const HomeCreatorSectionStyled = styled.section`
       max-width: 80%;
     }
     @media only screen and (min-width: 1200px) {
-      max-width: 850px;
+      max-width: 900px;
     }
     p {
       font-size: 16px;
@@ -63,6 +66,9 @@ const HomeCreatorSectionStyled = styled.section`
         line-height: 1.75;
         margin: 30px 0;
       }
+      @media only screen and (min-width: 1440px) {
+        font-size: 20px;
+      }
     }
   }
 
@@ -72,6 +78,14 @@ const HomeCreatorSectionStyled = styled.section`
     .explore-button {
       font-size: 16px;
       padding: 8px 30px;
+      @media only screen and (min-width: 768px) {
+        padding: 10px 40px;
+        font-size: 18px;
+      }
+      @media only screen and (min-width: 1200px) {
+        padding: 15px 50px;
+        font-size: 20px;
+      }
     }
   }
 `;
