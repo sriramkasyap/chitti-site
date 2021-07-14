@@ -1,11 +1,12 @@
 import Link from "next/link";
-import React from "react";
-import styled from "styled-components";
-import Button from "../styled/Button";
+import React, { useContext } from "react";
+import styled, { ThemeContext } from "styled-components";
+import { OutlineButton, SolidButton } from "../styled/Button";
 import Container from "../styled/Container";
 import FlexBox, { FlexCSS } from "../styled/FlexBox";
 
 const HomeBanner = () => {
+  const { colors } = useContext(ThemeContext);
   return (
     <>
       <Banner>
@@ -19,14 +20,14 @@ const HomeBanner = () => {
                   loyal ones.
                 </p>
                 <div className="action-holder">
-                  <Link href={process.env.NEXT_PUBLIC_DASHBOARD_LINK}>
-                    <Button className="action-button" darkBg>
+                  <SolidButton className="action-button" hover={{ bgColor: colors.light, fgColor: colors.black }}>
+                    <a target="_blank" rel="noreferrer" href={process.env.NEXT_PUBLIC_DASHBOARD_LINK}>
                       Start a Newsletter
-                    </Button>
+                    </a>
+                  </SolidButton>
+                  <Link href="/creators">
+                    <OutlineButton className="action-button">Explore Creators</OutlineButton>
                   </Link>
-                  <Button className="action-button" darkBg={false}>
-                    Explore Creators
-                  </Button>
                 </div>
               </div>
             </ContentPart>
@@ -110,6 +111,9 @@ const Banner = styled.div`
       padding-top: 10px;
       padding-bottom: 10px;
       font-weight: ${({ theme }) => theme.fontWeights.regular};
+      a {
+        color: inherit;
+      }
       @media only screen and (min-width: 992px) {
         margin-right: 20px;
         font-size: 18px;
