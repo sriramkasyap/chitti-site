@@ -74,14 +74,14 @@ const CreatorKeyBlockStyled = styled.div`
   }
   .button-overlay {
     border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
     width: 100%;
     height: 100%;
     left: 0;
     top: 0;
     z-index: 3;
-    opacity: 0;
+    opacity: 0.85;
     color: ${({ theme }) => theme.colors.white};
     font-size: 30px;
     text-align: center;
@@ -111,7 +111,7 @@ const CreatorKeyBlockStyled = styled.div`
   @media only screen and (min-width: 768px) {
     &:hover {
       .button-overlay {
-        opacity: 1;
+        opacity: 0;
       }
       .creator-name {
         transform: translateX(-50%) translateY(110%);
