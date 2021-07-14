@@ -1,6 +1,7 @@
 import TopBar from "../src/components/common/TopBar";
 import HomeBanner from "../src/components/home/HomeBanner";
 import HomeCreatorSection from "../src/components/home/HomeCreatorSection";
+import withDB from "../src/middleware/withDB";
 import Creator from "../src/models/Creator";
 
 export default function Home({ creators }) {
@@ -13,7 +14,7 @@ export default function Home({ creators }) {
   );
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps = withDB(async () => {
   let creators = await Creator.find(
     {},
     {
@@ -30,4 +31,4 @@ export const getStaticProps = async () => {
       creators,
     },
   };
-};
+});
