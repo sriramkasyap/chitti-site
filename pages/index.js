@@ -1,3 +1,4 @@
+import Footer from "../src/components/common/Footer";
 import TopBar from "../src/components/common/TopBar";
 import HomeBanner from "../src/components/home/HomeBanner";
 import HomeCreatorSection from "../src/components/home/HomeCreatorSection";
@@ -10,6 +11,7 @@ export default function Home({ creators }) {
       <TopBar showLogo={false} />
       <HomeBanner />
       <HomeCreatorSection creators={creators} />
+      <Footer />
     </>
   );
 }

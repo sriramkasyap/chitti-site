@@ -3,6 +3,7 @@ import Head from "next/head";
 import PropTypes from "prop-types";
 import React from "react";
 import UtilStyles from "../src/GlobalStyles/utilStyles";
+import Icomoon from "../src/GlobalStyles/icomoon";
 import FontStyles from "../src/GlobalStyles/fontStyles";
 
 const theme = {
@@ -36,6 +37,7 @@ export default function App({ Component, pageProps }) {
       <ThemeProvider theme={theme}>
         <UtilStyles />
         <FontStyles />
+        <Icomoon />
         <Component {...pageProps} />
       </ThemeProvider>
     </>
