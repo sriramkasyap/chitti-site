@@ -9,8 +9,16 @@ const TopBar = ({ showLogo }) => {
   return (
     <TopBarStyled>
       <Container>
-        <FlexBox>
-          {showLogo ? <></> : <></>}
+        <FlexBox alignItems="center">
+          {showLogo ? (
+            <>
+              <LogoHolder>
+                <h1>Chitti.</h1>
+              </LogoHolder>
+            </>
+          ) : (
+            <></>
+          )}
           <div className="user-auth-menu">
             <Link href="/login">Login/Signup</Link>
           </div>
@@ -36,6 +44,16 @@ const TopBarStyled = styled.div`
   }
   .user-auth-menu {
     margin-left: auto;
+    font-size: 12px;
+    @media only screen and (min-width: 992px) {
+      font-size: 14px;
+    }
+  }
+`;
+
+const LogoHolder = styled.div`
+  h1 {
+    font-size: 22px;
   }
 `;
 
