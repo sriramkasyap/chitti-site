@@ -19,9 +19,14 @@ export default withDB(async (req, res) => {
         .limit(limit)
         .skip(page * limit);
 
+      const total = await Creator.countDocuments();
+
       return res.send({
         success: true,
         creators,
+        page,
+        limit,
+        total,
       });
     }
     throw { message: "Invalid Request", statusCode: 404 };
