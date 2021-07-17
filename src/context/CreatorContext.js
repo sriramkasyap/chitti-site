@@ -6,8 +6,8 @@ import { subscribeToCreatorPlan } from "../helpers/creatorHelper";
 export const CreatorContext = createContext();
 
 const CreatorProvider = class extends React.Component {
-  subscribeToPlan = (email, planId) => {
-    return subscribeToCreatorPlan(email, planId);
+  subscribeToPlan = (name, email, planId) => {
+    return subscribeToCreatorPlan(name, email, planId);
   };
 
   render() {

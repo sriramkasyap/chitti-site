@@ -112,11 +112,11 @@ export default createGlobalStyle`
 
     #nprogress {
         .bar {
-            background: ${({ theme }) => theme.colors.primary};
+            background: ${({ theme }) => theme.colors.black};
             height: 4px;
         }
         .peg {
-            box-shadow: 0 0 10px ${({ theme }) => theme.colors.primary}, 0 0 5px ${({ theme }) => theme.colors.primary};
+            box-shadow: 0 0 10px ${({ theme }) => theme.colors.black}, 0 0 5px ${({ theme }) => theme.colors.black};
         }
         .spinner {
             display: none;
