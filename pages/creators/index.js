@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import Footer from "../../src/components/common/Footer";
 
 import TopBar from "../../src/components/common/TopBar";
 import ContentSection from "../../src/components/creators/ContentSection";
@@ -12,6 +13,7 @@ export default function CreatorsListPage({ creators }) {
       <TopBar showLogo />
       <ContentSection />
       <CreatorsList creators={creators} />
+      <Footer />
     </>
   );
 }
