@@ -3,20 +3,26 @@ import styled from "styled-components";
 import Container from "../styled/Container";
 import { FlexCSS } from "../styled/FlexBox";
 
-const SubscriberEmailSection = () => {
+const SubscriberEmailSection = ({ value, onChange, onSubmit, loading, errorMessage }) => {
   return (
     <Container>
       <SubscriberEmailSectionStyled>
         <div className="input-wrapper">
-          <input className="email-input" type="email" placeholder="Your Email Address" />
-          <button className="email-submit" type="submit">
-            Subscribe
+          <input value={value} onChange={onChange} className="email-input" type="email" placeholder="Your Email Address" />
+          <button className="email-submit" type="submit" onClick={onSubmit}>
+            {loading ? <LoadingImage src="/images/loader_white.gif" alt="" /> : "Subscribe"}
           </button>
         </div>
+        <p className="error-message">{errorMessage}</p>
       </SubscriberEmailSectionStyled>
     </Container>
   );
 };
+
+const LoadingImage = styled.img`
+  max-height: 40px;
+  margin: -15px 0;
+`;
 
 const SubscriberEmailSectionStyled = styled.div`
   margin: 20px 0;
@@ -61,10 +67,12 @@ const SubscriberEmailSectionStyled = styled.div`
       font-size: 18px;
       padding: 12px 20px;
     }
-    &:hover {
-      color: ${({ theme }) => theme.colors.black};
-      background-color: ${({ theme }) => theme.colors.white};
-    }
+  }
+  .error-message {
+    font-size: 12px;
+    color: red;
+    text-align: center;
+    margin-top: 10px;
   }
 `;
 

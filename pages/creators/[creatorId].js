@@ -4,7 +4,6 @@ import TopBar from "../../src/components/common/TopBar";
 import LongBioSection from "../../src/components/profile/LongBioSection";
 import PlanSection from "../../src/components/profile/PlanSection";
 import ShortBioSection from "../../src/components/profile/ShortBioSection";
-// import SubscriberEmailSection from "../../src/components/profile/SubscriberEmailSection";
 import CreatorProvider from "../../src/context/CreatorContext";
 import withDB from "../../src/middleware/withDB";
 import Creator from "../../src/models/Creator";
@@ -14,9 +13,8 @@ export default function CreatorProfile({ creator }) {
   return (
     <>
       <TopBar />
-      <CreatorProvider value={creator}>
+      <CreatorProvider creator={creator}>
         <ShortBioSection id="top" />
-        {/* <SubscriberEmailSection /> */}
         <SubscribeButton>
           <a href="#plans">Subscribe to My Newsletter</a>
         </SubscribeButton>

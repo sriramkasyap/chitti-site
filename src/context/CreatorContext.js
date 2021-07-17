@@ -5,22 +5,30 @@ import PropTypes from "prop-types";
 export const CreatorContext = createContext();
 
 const CreatorProvider = class extends React.Component {
+  subscribeToPlan = (email, planId) => {
+    console.log(email, planId);
+  };
+
   render() {
-    const { children } = this.props;
-    return (
-      <CreatorContext.Provider {...this.props}>
-        {children}
-      </CreatorContext.Provider>
-    );
+    const { children, creator } = this.props;
+    return <CreatorContext.Provider value={{ ...creator, subscribeToPlan: this.subscribeToPlan }}>{children}</CreatorContext.Provider>;
   }
 };
 
 CreatorProvider.propTypes = {
-  children: PropTypes.instanceOf(React.Component),
+  children: PropTypes.oneOfType([
+    PropTypes.instanceOf(React.Component),
+    PropTypes.arrayOf(React.Component),
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.string,
+  ]),
+  creator: PropTypes.object,
 };
 
 CreatorProvider.defaultProps = {
   children: <></>,
+  creator: {},
 };
 
 export default CreatorProvider;

@@ -1,14 +1,33 @@
-import React, { useContext } from "react";
+/* eslint-disable react/no-array-index-key */
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { CreatorContext } from "../../context/CreatorContext";
 import { limitFloat } from "../../utils";
 import Container from "../styled/Container";
 import { FlexCSS } from "../styled/FlexBox";
+import SubscribeModal from "./SubscribeModal";
 
 const PlanSection = () => {
   const { plans } = useContext(CreatorContext);
   const freePlan = plans.filter((plan) => plan.planFee === 0)[0];
   const paidPlan = plans.filter((plan) => plan.planFee > 0)[0] || null;
+
+  const [isModalOpen, toggleModal] = useState(false);
+  const [selectedPlanId, setPlanId] = useState();
+
+  const afterOpenModal = () => {
+    console.log("Modal Open");
+  };
+
+  const closeModal = () => {
+    toggleModal(false);
+  };
+
+  const selectPlan = (planId) => {
+    setPlanId(planId);
+    toggleModal(true);
+  };
+
   return (
     <PlanSectionStyled id="plans">
       <Container>
@@ -20,15 +39,15 @@ const PlanSection = () => {
             <hr />
             {freePlan.planFeatures.length > 0 ? (
               <ul className="plan-features">
-                {freePlan.planFeatures.map((feature) => (
-                  <li>{feature}</li>
+                {freePlan.planFeatures.map((feature, f) => (
+                  <li key={f}>{feature}</li>
                 ))}
               </ul>
             ) : (
               <p>This plan does not have any features yet.</p>
             )}
             <hr />
-            <SubscribeButton href="#top">Select Plan</SubscribeButton>
+            <SubscribeButton onClick={() => selectPlan(freePlan._id)}>Select Plan</SubscribeButton>
           </Plan>
           {plans.length > 1 ? (
             <Plan>
@@ -38,17 +57,18 @@ const PlanSection = () => {
               <hr />
               {paidPlan.planFeatures.length > 0 ? (
                 <ul className="plan-features">
-                  {paidPlan.planFeatures.map((feature) => (
-                    <li>{feature}</li>
+                  {paidPlan.planFeatures.map((feature, f) => (
+                    <li key={f}>{feature}</li>
                   ))}
                 </ul>
               ) : (
                 <p>This plan does not have any features yet.</p>
               )}
               <hr />
-              <SubscribeButton alt href="#top">
+              <SubscribeButton onClick={() => selectPlan(paidPlan._id)} alternate>
                 Select Plan
               </SubscribeButton>
+              <SubscribeModal selectedPlanId={selectedPlanId} isOpen={isModalOpen} onAfterOpen={afterOpenModal} onRequestClose={closeModal} />
             </Plan>
           ) : (
             <></>
@@ -147,9 +167,9 @@ const Plan = styled.div`
   }
 `;
 
-const SubscribeButton = styled.a`
+const SubscribeButton = styled.button`
   border: 1px solid ${({ theme }) => theme.colors.black};
-  background-color: ${({ theme, alt }) => (alt ? theme.colors.white : "transparent")};
+  background-color: ${({ theme, alternate }) => (alternate ? theme.colors.white : "transparent")};
   border-radius: 40px;
   font-size: 16px;
   line-height: 1;
@@ -161,7 +181,7 @@ const SubscribeButton = styled.a`
   &:hover {
     background-color: ${({ theme }) => theme.colors.black};
     color: ${({ theme }) => theme.colors.white};
-    border-color: ${({ theme, alt }) => (alt ? theme.colors.white : theme.colors.black)};
+    border-color: ${({ theme, alternate }) => (alternate ? theme.colors.white : theme.colors.black)};
   }
 `;
 
