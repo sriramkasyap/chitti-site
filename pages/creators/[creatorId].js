@@ -1,9 +1,10 @@
 import { isValidObjectId } from "mongoose";
+import styled from "styled-components";
+import Footer from "../../src/components/common/Footer";
 import TopBar from "../../src/components/common/TopBar";
 import LongBioSection from "../../src/components/profile/LongBioSection";
 import PlanSection from "../../src/components/profile/PlanSection";
 import ShortBioSection from "../../src/components/profile/ShortBioSection";
-import SubscriberEmailSection from "../../src/components/profile/SubscriberEmailSection";
 import CreatorProvider from "../../src/context/CreatorContext";
 import withDB from "../../src/middleware/withDB";
 import Creator from "../../src/models/Creator";
@@ -13,15 +14,42 @@ export default function CreatorProfile({ creator }) {
   return (
     <>
       <TopBar />
-      <CreatorProvider value={creator}>
+      <CreatorProvider creator={creator}>
         <ShortBioSection id="top" />
-        <SubscriberEmailSection />
+        <SubscribeButton>
+          <a href="#plans">Subscribe to My Newsletter</a>
+        </SubscribeButton>
         <LongBioSection />
         <PlanSection />
       </CreatorProvider>
+      <Footer />
     </>
   );
 }
+
+const SubscribeButton = styled.div`
+  text-align: center;
+  a {
+    color: ${({ theme }) => theme.colors.white};
+    padding: 7px 15px;
+    background-color: ${({ theme }) => theme.colors.black};
+    border-radius: 50px;
+    font-size: 16px;
+    border: 1px solid ${({ theme }) => theme.colors.black};
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.white};
+      color: ${({ theme }) => theme.colors.black};
+    }
+    @media only screen and (min-width: 992px) {
+      font-size: 18px;
+      padding: 10px 30px;
+    }
+    @media only screen and (min-width: 1440px) {
+      font-size: 20px;
+      padding: 12px 40px;
+    }
+  }
+`;
 
 export const getStaticProps = withDB(async ({ params: { creatorId } }) => {
   if (!isValidObjectId(creatorId)) throw { statusCode: 404, message: "Creator Not found" };

@@ -17,14 +17,11 @@ const Creator = ({ creator }) => {
       </Image>
       <Content>
         <h2 className="creatorName">{fullName}</h2>
-        {shortBio ? (
-          <p className="shortBio">{shortBio}</p>
-        ) : (
-          <p className="shortBio">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        )}
+        <p className="shortBio">
+          {shortBio ||
+            `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`}
+        </p>
       </Content>
       <ActionHolder>
         <a target="_blank" rel="noreferrer" href={`/creators/${creatorId}`}>
@@ -47,12 +44,8 @@ const ContentDivStyled = styled.div`
   text-align: center;
   width: 33%;
   height: 350px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   transition: all 0.3s;
-  &:hover {
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    transform: translateY(-5px);
-  }
+
   @media only screen and (min-width: 375px) {
     width: 100%;
   }
@@ -60,9 +53,6 @@ const ContentDivStyled = styled.div`
     width: 48%;
   }
   @media only screen and (min-width: 992px) {
-    width: 32%;
-  }
-  @media only screen and (min-width: 1200px) {
     width: 32%;
   }
   @media only screen and (min-width: 1440px) {
@@ -85,12 +75,12 @@ const Image = styled.div`
 const Content = styled.div`
   margin-top: 15px;
   .creatorName {
-    font-size: 20px;
+    font-size: 1.4rem;
     font-weight: ${({ theme }) => theme.fontWeights.medium};
   }
   .shortBio {
     font-size: 1rem;
-    margin-top: 10px;
+    margin: 10px 10px 0;
     color: ${({ theme }) => theme.colors.grey};
     overflow: hidden;
     text-overflow: ellipsis;

@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import Footer from "../../src/components/common/Footer";
 
 import TopBar from "../../src/components/common/TopBar";
 import ContentSection from "../../src/components/creators/ContentSection";
@@ -12,6 +13,7 @@ export default function CreatorsListPage({ creators }) {
       <TopBar showLogo />
       <ContentSection />
       <CreatorsList creators={creators} />
+      <Footer />
     </>
   );
 }
@@ -32,7 +34,8 @@ export const getStaticProps = withDB(async () => {
       profile: 1,
     }
   )
-    .limit(27)
+    .sort({ registeredAt: -1 })
+    .limit(16)
     .lean();
   creators = creators.map(({ _id, profile }) => ({
     creatorId: _id.toString(),
