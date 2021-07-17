@@ -9,12 +9,7 @@ const CreatorsList = ({ creators }) => {
     <ContentSectionStyled>
       <Container>
         <Heading>Our Top content Creators</Heading>
-        <ListDiv>
-          {creators?.length > 0 &&
-            creators.map((creator) => (
-              <Creator key={creator.creatorId} creator={creator} />
-            ))}
-        </ListDiv>
+        <ListDiv>{creators?.length > 0 && creators.map((creator) => <Creator key={creator.creatorId} creator={creator} />)}</ListDiv>
       </Container>
     </ContentSectionStyled>
   );

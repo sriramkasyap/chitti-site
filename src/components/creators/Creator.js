@@ -21,19 +21,14 @@ const Creator = ({ creator }) => {
           <p className="shortBio">{shortBio}</p>
         ) : (
           <p className="shortBio">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem
-            ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         )}
       </Content>
       <ActionHolder>
         <a target="_blank" rel="noreferrer" href={`/creators/${creatorId}`}>
-          <SolidButton
-            className="action-button"
-            hover={{ bgColor: colors.light, fgColor: colors.black }}
-          >
+          <SolidButton className="action-button" hover={{ bgColor: colors.light, fgColor: colors.black }}>
             Read More
           </SolidButton>
         </a>

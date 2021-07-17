@@ -16,27 +16,17 @@ const HomeBanner = () => {
               <h1 className="main-heading">Chitti.</h1>
               <div className="main-content">
                 <p>
-                  A Newsletter publication and distribution platform to help
-                  Content creators reach their audience directly and monetize
-                  from the loyal ones.
+                  A Newsletter publication and distribution platform to help Content creators reach their audience directly and monetize from the
+                  loyal ones.
                 </p>
                 <div className="action-holder">
-                  <SolidButton
-                    className="action-button"
-                    hover={{ bgColor: colors.light, fgColor: colors.black }}
-                  >
-                    <a
-                      target="_blank"
-                      rel="noreferrer"
-                      href={process.env.NEXT_PUBLIC_DASHBOARD_LINK}
-                    >
+                  <SolidButton className="action-button" hover={{ bgColor: colors.light, fgColor: colors.black }}>
+                    <a target="_blank" rel="noreferrer" href={process.env.NEXT_PUBLIC_DASHBOARD_LINK}>
                       Start a Newsletter
                     </a>
                   </SolidButton>
                   <Link href="/creators">
-                    <OutlineButton className="action-button">
-                      Explore Creators
-                    </OutlineButton>
+                    <OutlineButton className="action-button">Explore Creators</OutlineButton>
                   </Link>
                 </div>
               </div>

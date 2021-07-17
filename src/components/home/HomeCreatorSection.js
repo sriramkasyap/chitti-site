@@ -15,23 +15,18 @@ const HomeCreatorSection = ({ creators }) => {
         </h2>
         <div className="section-text">
           <p>
-            Content creators are often not rewarded for the quality of their
-            content due to the limitations and nuances of their Social Media
-            algorithms. Chitti intends to provide a platform for them to write,
-            publish and distribute their content in its purest form via
+            Content creators are often not rewarded for the quality of their content due to the limitations and nuances of their Social Media
+            algorithms. Chitti intends to provide a platform for them to write, publish and distribute their content in its purest form via
             newsletters directly to their audience inboxes.
           </p>
           <p>
-            Creators can easily publish their content and reach only their
-            select and interested audience, and in doing so, are rewarded
-            directly by those who find value in their content.
+            Creators can easily publish their content and reach only their select and interested audience, and in doing so, are rewarded directly by
+            those who find value in their content.
           </p>
         </div>
         <div className="section-cta">
           <Link href="/creators">
-            <SolidButton className="explore-button">
-              Explore Creators
-            </SolidButton>
+            <SolidButton className="explore-button">Explore Creators</SolidButton>
           </Link>
         </div>
         <CreatorsHolder creators={creators} />

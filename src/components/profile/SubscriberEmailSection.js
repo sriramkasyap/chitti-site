@@ -8,11 +8,7 @@ const SubscriberEmailSection = () => {
     <Container>
       <SubscriberEmailSectionStyled>
         <div className="input-wrapper">
-          <input
-            className="email-input"
-            type="email"
-            placeholder="Your Email Address"
-          />
+          <input className="email-input" type="email" placeholder="Your Email Address" />
           <button className="email-submit" type="submit">
             Subscribe
           </button>

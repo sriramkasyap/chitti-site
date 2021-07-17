@@ -6,11 +6,7 @@ import { FlexCSS } from "../styled/FlexBox";
 
 const CreatorKeyBlock = ({ creator, keyVal }) => {
   return (
-    <Link
-      as={`/creators/${creator.creatorId}`}
-      href="/creators/[creatorId]"
-      passHref
-    >
+    <Link as={`/creators/${creator.creatorId}`} href="/creators/[creatorId]" passHref>
       <CreatorKeyBlockStyled>
         <img src={creator.profile.displayPicture} alt="" />
         <div className="gradient-overlay" />
@@ -78,11 +74,7 @@ const CreatorKeyBlockStyled = styled.a`
     height: 100%;
     left: 0;
     top: 0;
-    background-image: linear-gradient(
-      to bottom,
-      rgba(37, 37, 37, 0.3),
-      rgba(37, 37, 37, 0.3)
-    );
+    background-image: linear-gradient(to bottom, rgba(37, 37, 37, 0.3), rgba(37, 37, 37, 0.3));
     z-index: 2;
     ${TransitionCSS}
   }
