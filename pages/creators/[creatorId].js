@@ -1,4 +1,5 @@
 import { isValidObjectId } from "mongoose";
+import Footer from "../../src/components/common/Footer";
 import TopBar from "../../src/components/common/TopBar";
 import LongBioSection from "../../src/components/profile/LongBioSection";
 import PlanSection from "../../src/components/profile/PlanSection";
@@ -19,6 +20,7 @@ export default function CreatorProfile({ creator }) {
         <LongBioSection />
         <PlanSection />
       </CreatorProvider>
+      <Footer />
     </>
   );
 }
