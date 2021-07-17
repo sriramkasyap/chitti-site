@@ -26,6 +26,7 @@ const ShortBioSectionStyled = styled.section`
   ${FlexCSS}
   flex-direction: column;
   align-items: center;
+  padding-bottom: 10px;
   @media only screen and (min-width: 768px) {
     padding-top: 65px;
   }

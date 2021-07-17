@@ -24,6 +24,7 @@ export const getStaticProps = withDB(async () => {
       profile: 1,
     }
   )
+    .sort({ registeredAt: -1 })
     .limit(27)
     .lean();
   creators = creators.map(({ _id, profile }) => ({

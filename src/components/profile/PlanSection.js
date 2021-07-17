@@ -20,10 +20,12 @@ const PlanSection = () => {
   };
 
   const closeModal = () => {
+    setPlanId(null);
     toggleModal(false);
   };
 
   const selectPlan = (planId) => {
+    console.log("clicked");
     setPlanId(planId);
     toggleModal(true);
   };
@@ -68,12 +70,12 @@ const PlanSection = () => {
               <SubscribeButton onClick={() => selectPlan(paidPlan._id)} alternate>
                 Select Plan
               </SubscribeButton>
-              <SubscribeModal selectedPlanId={selectedPlanId} isOpen={isModalOpen} onAfterOpen={afterOpenModal} onRequestClose={closeModal} />
             </Plan>
           ) : (
             <></>
           )}
         </div>
+        <SubscribeModal selectedPlanId={selectedPlanId} isOpen={isModalOpen} onAfterOpen={afterOpenModal} onRequestClose={closeModal} />
       </Container>
     </PlanSectionStyled>
   );

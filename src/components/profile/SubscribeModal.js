@@ -69,7 +69,9 @@ const SubscribeModal = (props) => {
         </SuccessWrapper>
       ) : (
         <ModalWrapper>
-          <p className="selected">You have selected: {selectedPlan && selectedPlan.planFee === 0 ? "Free" : "Paid"} plan</p>
+          <p className="selected">
+            You are subscribing to: {profile.fullName}&apos;s {selectedPlan && selectedPlan.planFee === 0 ? "Free" : "Paid"} plan
+          </p>
           <SubscriberEmailSection
             errorMessage={errorMessage}
             loading={loading}
