@@ -10,17 +10,29 @@ const CreatorsHolder = ({ creators }) => {
     <CreatorsHolderStyled>
       <FlexBox className="key-row row-1">
         {creators.slice(0, 10).map((creator, c) => (
-          <CreatorKeyBlock creator={creator} key={creator.creatorId} keyVal={getKeyboardMapValue(c)} />
+          <CreatorKeyBlock
+            creator={creator}
+            key={creator.creatorId}
+            keyVal={getKeyboardMapValue(c)}
+          />
         ))}
       </FlexBox>
       <FlexBox className="key-row row-2">
         {creators.slice(10, 19).map((creator, c) => (
-          <CreatorKeyBlock creator={creator} key={creator.creatorId} keyVal={getKeyboardMapValue(c + 10)} />
+          <CreatorKeyBlock
+            creator={creator}
+            key={creator.creatorId}
+            keyVal={getKeyboardMapValue(c + 10)}
+          />
         ))}
       </FlexBox>
       <FlexBox className="key-row row-3">
         {creators.slice(19, 27).map((creator, c) => (
-          <CreatorKeyBlock creator={creator} key={creator.creatorId} keyVal={getKeyboardMapValue(c + 19)} />
+          <CreatorKeyBlock
+            creator={creator}
+            key={creator.creatorId}
+            keyVal={getKeyboardMapValue(c + 19)}
+          />
         ))}
       </FlexBox>
     </CreatorsHolderStyled>

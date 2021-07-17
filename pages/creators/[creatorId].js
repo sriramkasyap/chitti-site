@@ -24,7 +24,8 @@ export default function CreatorProfile({ creator }) {
 }
 
 export const getStaticProps = withDB(async ({ params: { creatorId } }) => {
-  if (!isValidObjectId(creatorId)) throw { statusCode: 404, message: "Creator Not found" };
+  if (!isValidObjectId(creatorId))
+    throw { statusCode: 404, message: "Creator Not found" };
 
   const creator = await Creator.findById(creatorId, {
     profile: 1,
@@ -38,7 +39,8 @@ export const getStaticProps = withDB(async ({ params: { creatorId } }) => {
     { creator: 0 }
   ).lean();
 
-  if (!creator || !creator.profile) throw { statusCode: 404, message: "Creator Not found" };
+  if (!creator || !creator.profile)
+    throw { statusCode: 404, message: "Creator Not found" };
 
   return {
     props: {
@@ -58,7 +60,9 @@ export const getStaticPaths = withDB(async () => {
       _id: 1,
     }
   ).lean();
-  creators = creators.map(({ _id }) => ({ params: { creatorId: _id.toString() } }));
+  creators = creators.map(({ _id }) => ({
+    params: { creatorId: _id.toString() },
+  }));
 
   return {
     paths: creators,
