@@ -82,12 +82,12 @@ This project is currently deployed on Vercel. You can visit [Chitti App](https:/
 
 ### Home Page
 
-![Home Page](src\assets\screenshots\home.png?raw=true "Home Page")
+![Home Page](./src/assets/screenshots/home.png?raw=true "Home Page")
 
 ### Explore Creators Page
 
-![Explore Creators Page](src\assets\screenshots\explore_creators.png?raw=true "Explore Creators Page")
+![Explore Creators Page](./src/assets/screenshots/explore_creators.png?raw=true "Explore Creators Page")
 
 ### Creator's Profile Page
 
-![Creator's Profile Page](src\assets\screenshots\creator_profile.png?raw=true "Creator's Profile Page")
+![Creator's Profile Page](./src/assets/screenshots/creator_profile.png?raw=true "Creator's Profile Page")
