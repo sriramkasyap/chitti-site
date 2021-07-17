@@ -10,7 +10,7 @@ const PlanSection = () => {
   const freePlan = plans.filter((plan) => plan.planFee === 0)[0];
   const paidPlan = plans.filter((plan) => plan.planFee > 0)[0] || null;
   return (
-    <PlanSectionStyled>
+    <PlanSectionStyled id="plans">
       <Container>
         <h2 className="sub-heading">Read some of my free content first. If you like it, do consider upgrading to paid plan.</h2>
         <div className="plan-holder">
@@ -28,7 +28,7 @@ const PlanSection = () => {
               <p>This plan does not have any features yet.</p>
             )}
             <hr />
-            <SubscribeButton href="#top">Subscribe</SubscribeButton>
+            <SubscribeButton href="#top">Select Plan</SubscribeButton>
           </Plan>
           {plans.length > 1 ? (
             <Plan>
@@ -47,7 +47,7 @@ const PlanSection = () => {
               )}
               <hr />
               <SubscribeButton alt href="#top">
-                Subscribe
+                Select Plan
               </SubscribeButton>
             </Plan>
           ) : (

@@ -55,6 +55,7 @@ const LongBioSectionStyled = styled.section`
     }
     @media only screen and (min-width: 1200px) {
       max-width: 1140px;
+      font-size: 18px;
     }
   }
 `;
