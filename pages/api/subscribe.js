@@ -6,9 +6,9 @@ import SubscriptionPlan from "../../src/models/SubscriptionPlan";
 export default withDB(async (req, res) => {
   try {
     if (req.method === "POST") {
-      const { emailId, planId } = req.body;
+      const { emailId, planId, name } = req.body;
 
-      if (!emailId || !planId || !isValidObjectId(planId)) throw { message: "Invalid Request", statusCode: 501 };
+      if (!emailId || !name || !planId || !isValidObjectId(planId)) throw { message: "Invalid Request", statusCode: 501 };
 
       const existing = await Subscriber.findOne({
         email: emailId,
@@ -33,8 +33,7 @@ export default withDB(async (req, res) => {
         return res.send({ success: true });
       }
       const subscriber = new Subscriber({
-        name: "real_subscriber",
-        // To differentiate between fake data and real subscribers. Real ones will receive newsletters
+        name,
         email: emailId,
         subscriptions: [planId],
         payments: [],
