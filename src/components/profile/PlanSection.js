@@ -8,6 +8,7 @@ import { FlexCSS } from "../styled/FlexBox";
 const PlanSection = () => {
   const { plans } = useContext(CreatorContext);
   const freePlan = plans.filter((plan) => plan.planFee === 0)[0];
+  const paidPlan = plans.filter((plan) => plan.planFee > 0)[0] || null;
   return (
     <PlanSectionStyled>
       <Container>
@@ -15,16 +16,43 @@ const PlanSection = () => {
         <div className="plan-holder">
           <Plan free>
             <h3 className="plan-heading">Free Plan</h3>
-            <h2 className="plan-fee">₹{limitFloat(freePlan.planFee)}</h2>
+            <h2 className="plan-fee">₹ {limitFloat(freePlan.planFee)}</h2>
             <hr />
-            <ul className="plan-features">
-              {freePlan.planFeatures.map((feature) => (
-                <li>{feature}</li>
-              ))}
-            </ul>
+            {freePlan.planFeatures.length > 0 ? (
+              <ul className="plan-features">
+                {freePlan.planFeatures.map((feature) => (
+                  <li>{feature}</li>
+                ))}
+              </ul>
+            ) : (
+              <p>This plan does not have any features yet.</p>
+            )}
             <hr />
             <SubscribeButton href="#top">Subscribe</SubscribeButton>
           </Plan>
+          {plans.length > 1 ? (
+            <Plan>
+              <h3 className="plan-heading">Paid Plan</h3>
+              <h2 className="plan-fee">₹ {limitFloat(paidPlan.planFee)}</h2>
+              <h5 className="per-month">per month</h5>
+              <hr />
+              {paidPlan.planFeatures.length > 0 ? (
+                <ul className="plan-features">
+                  {paidPlan.planFeatures.map((feature) => (
+                    <li>{feature}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p>This plan does not have any features yet.</p>
+              )}
+              <hr />
+              <SubscribeButton alt href="#top">
+                Subscribe
+              </SubscribeButton>
+            </Plan>
+          ) : (
+            <></>
+          )}
         </div>
       </Container>
     </PlanSectionStyled>
@@ -71,7 +99,7 @@ const Plan = styled.div`
   .plan-heading {
     text-align: center;
     font-size: 20px;
-    color: ${({ theme }) => theme.colors.black};
+    color: ${({ theme, free }) => (free ? theme.colors.black : theme.colors.white)};
     margin: 0 0 15px;
     @media only screen and (min-width: 992px) {
       font-size: 24px;
@@ -82,23 +110,35 @@ const Plan = styled.div`
     font-size: 35px;
     font-family: ${({ theme }) => theme.fonts.text};
     font-weight: ${({ theme }) => theme.fontWeights.medium};
-    margin: 0 0 20px;
+    color: ${({ theme, free }) => (free ? theme.colors.black : theme.colors.white)};
+    margin: 0;
     @media only screen and (min-width: 992px) {
       font-size: 50px;
-      margin-bottom: 30px;
+      margin-top: 20px;
     }
+  }
+  .per-month {
+    font-size: 16px;
+    text-align: center;
+    color: ${({ theme, free }) => (free ? theme.colors.black : theme.colors.white)};
+    font-family: ${({ theme }) => theme.fonts.text};
+    margin: 10px 0 20px;
   }
   hr {
     opacity: 0.5;
   }
   .plan-features {
     padding: 15px 015px 15px;
+    p {
+      color: ${({ theme, free }) => (free ? theme.colors.black : theme.colors.white)};
+    }
     li {
       font-size: 14px;
       line-height: 1.5;
       margin: 5px 0;
       list-style: " - ";
       text-align: left;
+      color: ${({ theme, free }) => (free ? theme.colors.black : theme.colors.white)};
       @media only screen and (min-width: 992px) {
         font-size: 16px;
         margin: 7px 0;
@@ -109,7 +149,7 @@ const Plan = styled.div`
 
 const SubscribeButton = styled.a`
   border: 1px solid ${({ theme }) => theme.colors.black};
-  background-color: transparent;
+  background-color: ${({ theme, alt }) => (alt ? theme.colors.white : "transparent")};
   border-radius: 40px;
   font-size: 16px;
   line-height: 1;
@@ -121,6 +161,7 @@ const SubscribeButton = styled.a`
   &:hover {
     background-color: ${({ theme }) => theme.colors.black};
     color: ${({ theme }) => theme.colors.white};
+    border-color: ${({ theme, alt }) => (alt ? theme.colors.white : theme.colors.black)};
   }
 `;
 

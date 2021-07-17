@@ -19,9 +19,7 @@ const TopBar = ({ showLogo }) => {
           ) : (
             <></>
           )}
-          <div className="user-auth-menu">
-            <Link href="/login">Login/Signup</Link>
-          </div>
+          <div className="user-auth-menu">{/* <Link href="/login">Login/Signup</Link> */}</div>
         </FlexBox>
       </Container>
     </TopBarStyled>
