@@ -9,7 +9,9 @@ export const serializeObject = (objct) => {
 
 export const generateRandomString = (length = 6, numbers = false) => {
   let result = "";
-  const characters = numbers ? "1234567890" : "abcdefghijklmnopqrstuvwxyz0123456789";
+  const characters = numbers
+    ? "1234567890"
+    : "abcdefghijklmnopqrstuvwxyz0123456789";
   for (let i = 0; i < length; i + 1) {
     result += characters.charAt(Math.floor(Math.random() * characters.length));
   }

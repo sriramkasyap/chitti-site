@@ -7,7 +7,8 @@ export default withDB(async (req, res) => {
     if (req.method === "GET") {
       const { creatorId } = req.query;
 
-      if (!isValidObjectId(creatorId)) throw { statusCode: 404, message: "Creator Not found" };
+      if (!isValidObjectId(creatorId))
+        throw { statusCode: 404, message: "Creator Not found" };
 
       const creator = await Creator.findById(creatorId, {
         _id: 1,
@@ -15,7 +16,8 @@ export default withDB(async (req, res) => {
         plans: 1,
       }).lean();
 
-      if (!creator || !creator._id) throw { statusCode: 404, message: "Creator Not found" };
+      if (!creator || !creator._id)
+        throw { statusCode: 404, message: "Creator Not found" };
 
       return res.send({
         success: true,

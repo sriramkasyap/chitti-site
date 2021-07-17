@@ -26,7 +26,10 @@ export const getStaticProps = withDB(async () => {
   )
     .limit(27)
     .lean();
-  creators = creators.map(({ _id, profile }) => ({ creatorId: _id.toString(), profile }));
+  creators = creators.map(({ _id, profile }) => ({
+    creatorId: _id.toString(),
+    profile,
+  }));
 
   return {
     props: {

@@ -17,4 +17,5 @@ const SubscriptionPlanSchema = new Schema({
   ],
 });
 
-export default models.SubscriptionPlan || model("SubscriptionPlan", SubscriptionPlanSchema);
+export default models.SubscriptionPlan ||
+  model("SubscriptionPlan", SubscriptionPlanSchema);

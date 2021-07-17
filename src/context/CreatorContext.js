@@ -7,7 +7,11 @@ export const CreatorContext = createContext();
 const CreatorProvider = class extends React.Component {
   render() {
     const { children } = this.props;
-    return <CreatorContext.Provider {...this.props}>{children}</CreatorContext.Provider>;
+    return (
+      <CreatorContext.Provider {...this.props}>
+        {children}
+      </CreatorContext.Provider>
+    );
   }
 };
 
