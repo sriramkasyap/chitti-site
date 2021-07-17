@@ -1,6 +1,7 @@
 import { isValidObjectId } from "mongoose";
 import TopBar from "../../src/components/common/TopBar";
 import LongBioSection from "../../src/components/profile/LongBioSection";
+import PlanSection from "../../src/components/profile/PlanSection";
 import ShortBioSection from "../../src/components/profile/ShortBioSection";
 import SubscriberEmailSection from "../../src/components/profile/SubscriberEmailSection";
 import CreatorProvider from "../../src/context/CreatorContext";
@@ -13,9 +14,10 @@ export default function CreatorProfile({ creator }) {
     <>
       <TopBar />
       <CreatorProvider value={creator}>
-        <ShortBioSection />
+        <ShortBioSection id="top" />
         <SubscriberEmailSection />
         <LongBioSection />
+        <PlanSection />
       </CreatorProvider>
     </>
   );

@@ -32,10 +32,10 @@ const LongBioSectionStyled = styled.section`
   flex-direction: column;
   align-items: center;
   @media only screen and (min-width: 768px) {
-    padding: 30px 0;
+    padding: 30px 0 20px;
   }
   @media only screen and (min-width: 1200px) {
-    padding: 50px 0;
+    padding: 50px 0 20px;
   }
   p {
     text-align: center;

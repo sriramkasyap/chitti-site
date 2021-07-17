@@ -20,3 +20,7 @@ export const getKeyboardMapValue = (index) => {
   const keyMap = "qwertyuiopasdfghjklzxcvbnm,";
   return index > keyMap.length ? "" : keyMap[index];
 };
+
+export const limitFloat = (numb) => {
+  return Math.round((numb + Number.EPSILON) * 100) / 100;
+};

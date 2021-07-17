@@ -33,6 +33,16 @@ const SubscriberEmailSectionStyled = styled.div`
     border-bottom-left-radius: 50px;
     font-size: 14px;
     padding: 10px 15px;
+    @media only screen and (min-width: 768px) {
+      font-size: 16px;
+      padding-left: 20px;
+      width: 300px;
+      display: block;
+    }
+    @media only screen and (min-width: 1200px) {
+      font-size: 18px;
+      padding: 12px 25px;
+    }
   }
   .email-submit {
     border: 1px solid ${({ theme }) => theme.colors.black};
@@ -43,6 +53,14 @@ const SubscriberEmailSectionStyled = styled.div`
     font-family: ${({ theme }) => theme.fonts.text};
     padding: 7px 15px;
     font-size: 14px;
+    cursor: pointer;
+    @media only screen and (min-width: 768px) {
+      font-size: 16px;
+    }
+    @media only screen and (min-width: 1200px) {
+      font-size: 18px;
+      padding: 12px 20px;
+    }
     &:hover {
       color: ${({ theme }) => theme.colors.black};
       background-color: ${({ theme }) => theme.colors.white};
