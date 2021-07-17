@@ -76,8 +76,6 @@ The easiest way to deploy this app is to use the [Vercel Platform](https://verce
 
 Check out the [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-This project is currently deployed on Vercel. You can visit [Chitti App](https://chitti-io.vercel.app/)
-
 ## Screenshots
 
 ### Home Page
