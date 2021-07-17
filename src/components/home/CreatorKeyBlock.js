@@ -1,22 +1,26 @@
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
+import Link from "next/link";
 import { FlexCSS } from "../styled/FlexBox";
 
 const CreatorKeyBlock = ({ creator, keyVal }) => {
   return (
-    <CreatorKeyBlockStyled>
-      <img src={creator.profile.displayPicture} alt="" />
-      <div className="gradient-overlay" />
-      <div className="button-overlay">{keyVal}</div>
-      <p className="creator-name">{creator.profile.fullName}</p>
-    </CreatorKeyBlockStyled>
+    <Link as={`/creators/${creator.creatorId}`} href="/creators/[creatorId]" passHref>
+      <CreatorKeyBlockStyled>
+        <img src={creator.profile.displayPicture} alt="" />
+        <div className="gradient-overlay" />
+        <div className="button-overlay">{keyVal}</div>
+        <p className="creator-name">{creator.profile.fullName}</p>
+      </CreatorKeyBlockStyled>
+    </Link>
   );
 };
 
 CreatorKeyBlock.propTypes = {
   keyVal: PropTypes.string,
   creator: PropTypes.shape({
+    creatorId: PropTypes.string,
     profile: PropTypes.shape({
       displayPicture: PropTypes.string,
       fullName: PropTypes.string,
@@ -27,6 +31,7 @@ CreatorKeyBlock.propTypes = {
 CreatorKeyBlock.defaultProps = {
   keyVal: "",
   creator: {
+    creatorId: "",
     profile: {
       displayPicture: "",
       fullName: "",
@@ -36,7 +41,8 @@ CreatorKeyBlock.defaultProps = {
 
 const TransitionCSS = "transition: all 0.2s ease-in-out;";
 
-const CreatorKeyBlockStyled = styled.div`
+const CreatorKeyBlockStyled = styled.a`
+  display: block;
   margin: 10px;
   border-radius: 50%;
   max-width: 60px;
@@ -74,14 +80,14 @@ const CreatorKeyBlockStyled = styled.div`
   }
   .button-overlay {
     border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
     width: 100%;
     height: 100%;
     left: 0;
     top: 0;
     z-index: 3;
-    opacity: 0;
+    opacity: 0.85;
     color: ${({ theme }) => theme.colors.white};
     font-size: 30px;
     text-align: center;
@@ -111,7 +117,7 @@ const CreatorKeyBlockStyled = styled.div`
   @media only screen and (min-width: 768px) {
     &:hover {
       .button-overlay {
-        opacity: 1;
+        opacity: 0;
       }
       .creator-name {
         transform: translateX(-50%) translateY(110%);

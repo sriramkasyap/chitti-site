@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-const FlexCSS = () => `
+const FlexCSS = ({ alignItems }) => `
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: ${alignItems || "flex-start"};
   justify-content: flex-start;
   flex-wrap: wrap;
 `;

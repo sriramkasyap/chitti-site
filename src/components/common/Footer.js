@@ -5,7 +5,7 @@ import FlexBox, { FlexCSS } from "../styled/FlexBox";
 const Footer = () => {
   return (
     <FooterStyled>
-      <FlexBox>
+      <FlexBox alignItems="center">
         <div className="copyright-part">
           <p>&copy; 2021 - Chitti. All Rights Reserved</p>
         </div>

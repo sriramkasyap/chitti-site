@@ -1,7 +1,9 @@
 import { serializeObject } from "../utils";
 
 export const getCreators = async (params) => {
-  return fetch(`/api/creators?${serializeObject(params)}`).then((r) => r.json());
+  return fetch(`/api/creators?${serializeObject(params)}`).then((r) =>
+    r.json()
+  );
 };
 
 export const getCreator = async (creatorId) => {
