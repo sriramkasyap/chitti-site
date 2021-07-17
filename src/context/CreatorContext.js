@@ -1,12 +1,13 @@
 /* eslint-disable react/prefer-stateless-function */
 import React, { createContext } from "react";
 import PropTypes from "prop-types";
+import { subscribeToCreatorPlan } from "../helpers/creatorHelper";
 
 export const CreatorContext = createContext();
 
 const CreatorProvider = class extends React.Component {
   subscribeToPlan = (email, planId) => {
-    console.log(email, planId);
+    return subscribeToCreatorPlan(email, planId);
   };
 
   render() {

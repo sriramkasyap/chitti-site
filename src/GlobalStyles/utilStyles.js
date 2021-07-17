@@ -11,8 +11,7 @@ export default createGlobalStyle`
         color: ${({ theme }) => theme.colors.black};
         overflow-x: hidden;
         font-size: 14px;
-        background-image: ${({ theme }) =>
-          `radial-gradient(circle at 0 0, white, ${theme.colors.light})`};
+        background-image: ${({ theme }) => `radial-gradient(circle at 0 0, white, ${theme.colors.light})`};
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
@@ -88,6 +87,10 @@ export default createGlobalStyle`
             font-family: ${({ theme }) => theme.fonts.text};
         }
     }
+    
+    a,button {
+        cursor: pointer;
+    }
 
     @keyframes mainMenu {
         from {
@@ -113,9 +116,7 @@ export default createGlobalStyle`
             height: 4px;
         }
         .peg {
-            box-shadow: 0 0 10px ${({ theme }) =>
-              theme.colors.primary}, 0 0 5px ${({ theme }) =>
-  theme.colors.primary};
+            box-shadow: 0 0 10px ${({ theme }) => theme.colors.primary}, 0 0 5px ${({ theme }) => theme.colors.primary};
         }
         .spinner {
             display: none;
