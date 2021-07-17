@@ -60,6 +60,7 @@ const SubscriberEmailSectionStyled = styled.div`
     border: 1px solid ${({ theme }) => theme.colors.light};
     font-size: 14px;
     padding: 10px 15px;
+    text-align: center;
     &:focus {
       border: 1px solid ${({ theme }) => theme.colors.black};
     }
@@ -78,6 +79,7 @@ const SubscriberEmailSectionStyled = styled.div`
     font-family: ${({ theme }) => theme.fonts.text};
     padding: 7px 15px;
     font-size: 14px;
+    text-align: center;
     @media only screen and (min-width: 768px) {
       font-size: 16px;
     }
