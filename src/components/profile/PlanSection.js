@@ -12,10 +12,7 @@ const PlanSection = () => {
   return (
     <PlanSectionStyled>
       <Container>
-        <h2 className="sub-heading">
-          Read some of my free content first. If you like it, do consider
-          upgrading to paid plan.
-        </h2>
+        <h2 className="sub-heading">Read some of my free content first. If you like it, do consider upgrading to paid plan.</h2>
         <div className="plan-holder">
           <Plan free>
             <h3 className="plan-heading">Free Plan</h3>
@@ -89,10 +86,8 @@ const PlanSectionStyled = styled.section`
 `;
 
 const Plan = styled.div`
-  border: 1px solid
-    ${({ theme, free }) => (free ? theme.colors.grey : theme.colors.black)};
-  background-color: ${({ theme, free }) =>
-    free ? theme.colors.light : theme.colors.black};
+  border: 1px solid ${({ theme, free }) => (free ? theme.colors.grey : theme.colors.black)};
+  background-color: ${({ theme, free }) => (free ? theme.colors.light : theme.colors.black)};
   padding: 30px 20px;
   text-align: center;
   width: 300px;
