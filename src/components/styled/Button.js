@@ -22,7 +22,12 @@ const Button = styled.button`
 const SolidButton = ({ children, ...otherProps }) => {
   const theme = useContext(ThemeContext);
   return (
-    <Button bgColor={theme.colors.black} fgColor={theme.colors.white} hover={{ bgColor: "transparent", fgColor: theme.colors.black }} {...otherProps}>
+    <Button
+      bgColor={theme.colors.black}
+      fgColor={theme.colors.white}
+      hover={{ bgColor: "transparent", fgColor: theme.colors.black }}
+      {...otherProps}
+    >
       {children}
     </Button>
   );
@@ -45,7 +50,12 @@ SolidButton.defaultProps = {
 const OutlineButton = ({ children, ...otherProps }) => {
   const theme = useContext(ThemeContext);
   return (
-    <Button bgColor="transparent" fgColor={theme.colors.black} hover={{ bgColor: theme.colors.black, fgColor: theme.colors.white }} {...otherProps}>
+    <Button
+      bgColor="transparent"
+      fgColor={theme.colors.black}
+      hover={{ bgColor: theme.colors.black, fgColor: theme.colors.white }}
+      {...otherProps}
+    >
       {children}
     </Button>
   );
