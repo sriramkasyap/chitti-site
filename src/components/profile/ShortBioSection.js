@@ -13,10 +13,8 @@ const ShortBioSection = () => {
         <CreatorName>{profile.fullName}</CreatorName>
 
         <CreatorShortBio>
-          <p>
-            {profile.shortBio ||
-              "Hi, This is the Creator's Short bio. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos enim ipsum voluptate nemo? Autem atque consequatur quisquam quasi tempora explicabo? Provident, omnis nulla nam molestiae assumenda saepe neque quae aut?"}
-          </p>
+          {profile.shortBio ||
+            "Hi, This is the Creator's Short bio. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos enim ipsum voluptate nemo? Autem atque consequatur quisquam quasi tempora explicabo? Provident, omnis nulla nam molestiae assumenda saepe neque quae aut?"}
         </CreatorShortBio>
       </ShortBioSectionStyled>
     </Container>
@@ -64,19 +62,21 @@ const CreatorName = styled.h1`
   }
 `;
 
-const CreatorShortBio = styled.div`
+const CreatorShortBio = styled.p`
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
   margin: 0px 0 15px;
   max-width: 90%;
+  color: ${({ theme }) => theme.colors.black};
+  font-weight: ${({ theme }) => theme.fontWeights.light};
   @media only screen and (min-width: 768px) {
     max-width: 500px;
-    font-size: 16px;
+    font-size: 18px;
     margin: 0 0 25px;
   }
   @media only screen and (min-width: 1200px) {
-    font-size: 18px;
-    max-width: 600px;
+    font-size: 24px;
+    max-width: 650px;
     margin: 0 0 40px;
   }
 `;
