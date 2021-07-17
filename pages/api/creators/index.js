@@ -10,14 +10,17 @@ export default withDB(async (req, res) => {
       limit = parseInt(limit, 10) || 20;
       page = parseInt(page, 10) || 0;
 
-      console.log("f", filters);
-
-      const creators = await Creator.find(filters, {
+      let creators = await Creator.find(filters, {
         _id: 1,
         profile: 1,
       })
         .limit(limit)
         .skip(page * limit);
+
+      creators = creators.map(({ _id, profile }) => ({
+        creatorId: _id.toString(),
+        profile,
+      }));
 
       const total = await Creator.countDocuments();
 
