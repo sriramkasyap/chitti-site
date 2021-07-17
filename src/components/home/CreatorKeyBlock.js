@@ -1,22 +1,26 @@
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
+import Link from "next/link";
 import { FlexCSS } from "../styled/FlexBox";
 
 const CreatorKeyBlock = ({ creator, keyVal }) => {
   return (
-    <CreatorKeyBlockStyled>
-      <img src={creator.profile.displayPicture} alt="" />
-      <div className="gradient-overlay" />
-      <div className="button-overlay">{keyVal}</div>
-      <p className="creator-name">{creator.profile.fullName}</p>
-    </CreatorKeyBlockStyled>
+    <Link as={`/creators/${creator.creatorId}`} href="/creators/[creatorId]" passHref>
+      <CreatorKeyBlockStyled>
+        <img src={creator.profile.displayPicture} alt="" />
+        <div className="gradient-overlay" />
+        <div className="button-overlay">{keyVal}</div>
+        <p className="creator-name">{creator.profile.fullName}</p>
+      </CreatorKeyBlockStyled>
+    </Link>
   );
 };
 
 CreatorKeyBlock.propTypes = {
   keyVal: PropTypes.string,
   creator: PropTypes.shape({
+    creatorId: PropTypes.string,
     profile: PropTypes.shape({
       displayPicture: PropTypes.string,
       fullName: PropTypes.string,
@@ -27,6 +31,7 @@ CreatorKeyBlock.propTypes = {
 CreatorKeyBlock.defaultProps = {
   keyVal: "",
   creator: {
+    creatorId: "",
     profile: {
       displayPicture: "",
       fullName: "",
@@ -36,7 +41,8 @@ CreatorKeyBlock.defaultProps = {
 
 const TransitionCSS = "transition: all 0.2s ease-in-out;";
 
-const CreatorKeyBlockStyled = styled.div`
+const CreatorKeyBlockStyled = styled.a`
+  display: block;
   margin: 10px;
   border-radius: 50%;
   max-width: 60px;
