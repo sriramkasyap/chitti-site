@@ -1,3 +1,5 @@
+export const noop = () => {};
+
 export const serializeObject = (objct) => {
   const str = [];
   for (const i in objct)

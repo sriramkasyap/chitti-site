@@ -1,17 +1,37 @@
-import React from "react";
-import styled from "styled-components";
-import Container from "../styled/Container";
-import { FlexCSS } from "../styled/FlexBox";
+import React, { useContext } from "react";
+import PropTypes from "prop-types";
+import styled, { ThemeContext } from "styled-components";
 
-const SubscriberEmailSection = ({ value, onChange, onSubmit, loading, errorMessage }) => {
+import Container from "../styled/Container";
+import { SolidButton } from "../styled/Button";
+import { noop } from "../../utils";
+
+const SubscriberEmailSection = ({ loading, errorMessage, inputData, onChange, onSubmit }) => {
+  const { colors } = useContext(ThemeContext);
+
   return (
     <Container>
       <SubscriberEmailSectionStyled>
         <div className="input-wrapper">
-          <input value={value} onChange={onChange} className="email-input" type="email" placeholder="Your Email Address" />
-          <button className="email-submit" type="submit" onClick={onSubmit}>
+          <input
+            type="text"
+            name="subscriberName"
+            value={inputData.subscriberName}
+            onChange={onChange}
+            className="subscription-input"
+            placeholder="Your Full Name"
+          />
+          <input
+            type="email"
+            name="subscriberEmail"
+            value={inputData.subscriberEmail}
+            onChange={onChange}
+            className="subscription-input"
+            placeholder="Your Email Address"
+          />
+          <SolidButton className="email-submit" type="submit" onClick={onSubmit} hover={{ bgColor: colors.light, fgColor: colors.black }}>
             {loading ? <LoadingImage src="/images/loader_white.gif" alt="" /> : "Subscribe"}
-          </button>
+          </SolidButton>
         </div>
         <p className="error-message">{errorMessage}</p>
       </SubscriberEmailSectionStyled>
@@ -26,19 +46,23 @@ const LoadingImage = styled.img`
 
 const SubscriberEmailSectionStyled = styled.div`
   margin: 20px 0;
-  ${FlexCSS}
   justify-content: center;
   .input-wrapper {
-    ${FlexCSS}
+    display: flex;
+    flex-direction: column;
     flex-wrap: nowrap;
-    align-items: stretch;
+    justify-content: center;
+    align-items: center;
   }
-  .email-input {
+  .subscription-input {
+    width: 100%;
+    margin-bottom: 15px;
     border: 1px solid ${({ theme }) => theme.colors.light};
-    border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px;
     font-size: 14px;
     padding: 10px 15px;
+    &:focus {
+      border: 1px solid ${({ theme }) => theme.colors.black};
+    }
     @media only screen and (min-width: 768px) {
       font-size: 16px;
       padding-left: 20px;
@@ -51,15 +75,9 @@ const SubscriberEmailSectionStyled = styled.div`
     }
   }
   .email-submit {
-    border: 1px solid ${({ theme }) => theme.colors.black};
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
-    background-color: ${({ theme }) => theme.colors.black};
-    color: ${({ theme }) => theme.colors.white};
     font-family: ${({ theme }) => theme.fonts.text};
     padding: 7px 15px;
     font-size: 14px;
-    cursor: pointer;
     @media only screen and (min-width: 768px) {
       font-size: 16px;
     }
@@ -75,5 +93,21 @@ const SubscriberEmailSectionStyled = styled.div`
     margin-top: 10px;
   }
 `;
+
+SubscriberEmailSection.propTypes = {
+  loading: PropTypes.bool,
+  errorMessage: PropTypes.string,
+  inputData: PropTypes.instanceOf(Object),
+  onChange: PropTypes.func,
+  onSubmit: PropTypes.func,
+};
+
+SubscriberEmailSection.defaultProps = {
+  loading: false,
+  errorMessage: "",
+  inputData: {},
+  onChange: noop,
+  onSubmit: noop,
+};
 
 export default SubscriberEmailSection;

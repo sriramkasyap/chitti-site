@@ -1,9 +1,9 @@
-/* eslint-disable react/destructuring-assignment */
 import React, { useContext, useState } from "react";
 import Modal from "react-modal";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Link from "next/link";
+
 import { CreatorContext } from "../../context/CreatorContext";
 import SubscriberEmailSection from "./SubscriberEmailSection";
 import { validateEmail } from "../../utils";
@@ -23,20 +23,36 @@ const customStyles = {
 };
 
 const SubscribeModal = (props) => {
+  const { selectedPlanId, onRequestClose } = props;
   const { profile, plans, subscribeToPlan } = useContext(CreatorContext);
-  const selectedPlan = plans.filter((plan) => plan._id === props.selectedPlanId)[0];
-  const [emailId, setEmail] = useState("");
+  const selectedPlan = plans.filter((plan) => plan._id === selectedPlanId)[0];
+  const [inputData, setInputData] = useState({
+    subscriberName: "",
+    subscriberEmail: "",
+  });
   const [errorMessage, setErrorMessage] = useState("");
   const [isSuccess, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const handleInput = (event) => {
+    const {
+      target: { value, name },
+    } = event;
+
+    setInputData({
+      ...inputData,
+      [name]: value,
+    });
+  };
+
   const onSubmit = async (e) => {
+    const { subscriberName, subscriberEmail } = inputData;
     e.preventDefault();
     setErrorMessage("");
-    if (emailId && emailId.length > 0) {
-      if (validateEmail(emailId)) {
+    if (subscriberEmail?.length > 0 && subscriberName?.length > 0) {
+      if (validateEmail(subscriberEmail)) {
         setLoading(true);
-        subscribeToPlan(emailId, props.selectedPlanId).then((result) => {
+        subscribeToPlan(subscriberName, subscriberEmail, props.selectedPlanId).then((result) => {
           setLoading(false);
           if (result.success) {
             setSuccess(true);
@@ -56,7 +72,7 @@ const SubscribeModal = (props) => {
     <Modal {...props} style={customStyles} contentLabel="Subscribe">
       {isSuccess ? (
         <SuccessWrapper>
-          <CloseButton onClick={props.onRequestClose}>X</CloseButton>
+          <CloseButton onClick={onRequestClose}>X</CloseButton>
           <h3>Congratulations!</h3>
           <p>
             You have been successfully subscribed to {profile.fullName}&apos;s {selectedPlan && selectedPlan.planFee === 0 ? "Free" : "Paid"} plan
@@ -72,13 +88,7 @@ const SubscribeModal = (props) => {
           <p className="selected">
             You are subscribing to: {profile.fullName}&apos;s {selectedPlan && selectedPlan.planFee === 0 ? "Free" : "Paid"} plan
           </p>
-          <SubscriberEmailSection
-            errorMessage={errorMessage}
-            loading={loading}
-            onSubmit={onSubmit}
-            value={emailId}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+          <SubscriberEmailSection errorMessage={errorMessage} loading={loading} inputData={inputData} onSubmit={onSubmit} onChange={handleInput} />
         </ModalWrapper>
       )}
     </Modal>
