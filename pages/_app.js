@@ -2,9 +2,13 @@ import { ThemeProvider } from "styled-components";
 import Head from "next/head";
 import PropTypes from "prop-types";
 import React from "react";
+import NProgress from "nprogress";
+import { Router } from "next/dist/client/router";
 import UtilStyles from "../src/GlobalStyles/utilStyles";
 import Icomoon from "../src/GlobalStyles/icomoon";
 import FontStyles from "../src/GlobalStyles/fontStyles";
+
+import "nprogress/nprogress.css";
 
 const theme = {
   colors: {
@@ -27,6 +31,18 @@ const theme = {
 };
 
 export default function App({ Component, pageProps }) {
+  NProgress.configure({
+    easing: "ease",
+    speed: 800,
+    showSpinner: false,
+    parent: "body",
+    minimum: 0.08,
+  });
+
+  Router.events.on("routeChangeStart", () => NProgress.start());
+  Router.events.on("routeChangeComplete", () => NProgress.done());
+  Router.events.on("routeChangeError", () => NProgress.done());
+
   return (
     <>
       <Head>
