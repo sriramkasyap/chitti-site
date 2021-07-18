@@ -37,6 +37,7 @@ export default withDB(async (req, res) => {
         email: emailId,
         subscriptions: [planId],
         payments: [],
+        registeredAt: Date.now(),
       });
 
       const saved = await subscriber.save();
