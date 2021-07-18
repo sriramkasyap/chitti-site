@@ -76,6 +76,10 @@ export const getStaticProps = withDB(async ({ params: { creatorId } }) => {
         plans: JSON.parse(JSON.stringify(plans)),
       },
     },
+    // Next.js will attempt to re-generate the page:
+    // - When a request comes in
+    // - At most once every 10 seconds
+    revalidate: 10, // In seconds
   };
 });
 
@@ -89,9 +93,11 @@ export const getStaticPaths = withDB(async () => {
   creators = creators.map(({ _id }) => ({
     params: { creatorId: _id.toString() },
   }));
-
+  // We'll pre-render only these paths at build time.
+  // { fallback: blocking } will server-render pages
+  // on-demand if the path doesn't exist.
   return {
     paths: creators,
-    fallback: false,
+    fallback: "blocking",
   };
 });
