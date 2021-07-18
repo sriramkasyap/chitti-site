@@ -14,6 +14,7 @@ export default withDB(async (req, res) => {
         _id: 1,
         profile: 1,
       })
+        .sort({ registeredAt: -1 })
         .limit(limit)
         .skip(page * limit);
 
