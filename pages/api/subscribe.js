@@ -62,5 +62,3 @@ export default withDB(async (req, res) => {
     });
   }
 });
-
-export const runtime = "edge";

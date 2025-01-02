@@ -101,5 +101,3 @@ export const getStaticPaths = withDB(async () => {
     fallback: "blocking",
   };
 });
-
-export const runtime = "experimental-edge";
