@@ -102,4 +102,4 @@ export const getStaticPaths = withDB(async () => {
   };
 });
 
-export const runtime = "edge";
+export const runtime = "experimental-edge";
